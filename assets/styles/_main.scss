@@ -1,0 +1,103 @@
+main {
+  .faqContainer {
+    width: 600px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 165px auto;
+    padding: 40px;
+    background-color: $white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px $darkPurpleShadow;
+
+    @media screen and (max-width: 768px) {
+      width: auto;
+      padding: 20px;
+      margin: 140px 20px;
+    }
+
+    .title {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      .img-title {
+        @media screen and (max-width: 768px) {
+          width: 30px;
+        }
+      }
+
+      h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+
+        @media screen and (max-width: 768px) {
+          font-size: 2.1rem;
+        }
+      }
+    }
+
+    .all-questions {
+      margin-top: 5px;
+
+      .question-container {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+        cursor: pointer;
+
+        &:hover .question h2 {
+          color: $purple;
+        }
+        &:hover .icons .icons {
+          transform: scale(1.1);
+        }
+
+        .question {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 22px;
+
+          h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: $darkPurple;
+            padding-right: 20px;
+          }
+
+          .icons {
+            position: relative;
+
+            .plus-icon {
+              visibility: visible;
+            }
+            .minus-icon {
+              visibility: hidden;
+              position: absolute;
+              top: 0;
+              left: 0;
+            }
+          }
+        }
+
+        .answer {
+          display: none;
+          font-size: 1rem;
+          font-size: 600;
+          color: $grayishPurple;
+        }
+      }
+
+      .question-container:nth-child(1)::after,
+      .question-container:nth-child(2)::after,
+      .question-container:nth-child(3)::after {
+        content: "";
+        height: 1px;
+        width: 100%;
+        background-color: $grayishPurple;
+        opacity: 0.2;
+      }
+    }
+  }
+}
